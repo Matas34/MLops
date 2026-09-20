@@ -45,18 +45,18 @@ stages:
     params:
       params.yaml:
         train:
-          n_estimators: 100
+          n_estimators: 300
           max_depth: 5
           random_seed: 42
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: d7eed5135c0308740cf835dc4ae65c55
-      size: 378873
+      md5: d806e5889dd661baf7bee11b41295cc3
+      size: 1151993
       isexec: true
     - path: models/run_id.txt
       hash: md5
-      md5: 646cd3e8216f92541ee7adcf4e947ee1
+      md5: 705c199db1dbd78d9791fcc33be1bfdc
       size: 33
       isexec: true
   evaluate:
@@ -69,12 +69,12 @@ stages:
       isexec: true
     - path: models/model.pkl
       hash: md5
-      md5: d7eed5135c0308740cf835dc4ae65c55
-      size: 378873
+      md5: d806e5889dd661baf7bee11b41295cc3
+      size: 1151993
       isexec: true
     - path: models/run_id.txt
       hash: md5
-      md5: 646cd3e8216f92541ee7adcf4e947ee1
+      md5: 705c199db1dbd78d9791fcc33be1bfdc
       size: 33
       isexec: true
     - path: src/evaluate.py
@@ -85,6 +85,6 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 3cebd70c2e7658228da3158e51c7c81a
-      size: 102
+      md5: f58afec6780a82f120bc937445333c00
+      size: 118
       isexec: true
