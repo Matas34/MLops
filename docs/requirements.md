@@ -35,6 +35,9 @@ Tikslas: recall >= 0.92, false positive <= 0.5%.
 | NFR-09 | Atsekamumas      | Kiekvienas eksperimentas turi MLflow run ID, git commit ir duomenų md5 tag'us; kiekvienas diegiamas modelis – `model_id` | 100 % run'ų |
 | NFR-10 | Duomenų versija  | Mokymo duomenų versija fiksuota DVC (`dvc.lock` md5 = run'o `dvc_raw_md5`) | 100 % run'ų |
 
+## 7. Keitimo istorija
+| 1.1 | 2026-09-20 | Matas Čeplinskas | MLflow + DVC pipeline, NFR: 08-10 |
+
 ## 10.x Agentinis elgesys (v1.9)
 
 | ID     | Reikalavimas              | KPI                         |
