@@ -1,0 +1,4 @@
+[core]
+    remote = localremote
+['remote "localremote"']
+    url = /mnt/c/Uni/MLops full/dvcstore
