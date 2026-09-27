@@ -35,8 +35,17 @@ Tikslas: recall >= 0.92, false positive <= 0.5%.
 | NFR-09 | Atsekamumas      | Kiekvienas eksperimentas turi MLflow run ID, git commit ir duomenų md5 tag'us; kiekvienas diegiamas modelis – `model_id` | 100 % run'ų |
 | NFR-10 | Duomenų versija  | Mokymo duomenų versija fiksuota DVC (`dvc.lock` md5 = run'o `dvc_raw_md5`) | 100 % run'ų |
 
+## 4.x Debesijos NFR (v1.3)
+| ID | Reikalavimas | KPI |
+|--------|---------------------------|-----------------------------|
+| NFR-15 | Monthly infra cost        | <= 50 USD (GCP credits)     |
+| NFR-16 | Cost per inference        | <= 0.0002 USD               |
+| NFR-17 | Managed endpoint SLA      | Uptime >= 99.9% (Cloud Run) |
+| NFR-18 | IaC reproducibility       | terraform apply < 15 min    |
+
 ## 7. Keitimo istorija
-| 1.1 | 2026-09-20 | Matas Čeplinskas | MLflow + DVC pipeline, NFR: 08-10 |
+| 1.1 | 2026-09-20 | Matas Čeplinskas | MLflow + DVC pipeline, NFR: 08-10       |
+| 1.3 | 2026-09-24 | Matas Čeplinskas | GCP Terraform, Cloud Run, cost analysis |
 
 ## 10.x Agentinis elgesys (v1.9)
 
