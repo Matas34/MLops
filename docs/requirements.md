@@ -43,9 +43,18 @@ Tikslas: recall >= 0.92, false positive <= 0.5%.
 | NFR-17 | Managed endpoint SLA      | Uptime >= 99.9% (Cloud Run) |
 | NFR-18 | IaC reproducibility       | terraform apply < 15 min    |
 
+## 5.x Kubernetes NFR (v1.4)
+| ID | Reikalavimas | KPI |
+|--------|---------------------------|-----------------------------|
+| NFR-19 | Deployment rollout time | <= 60 s (2 replicas) |
+| NFR-20 | GPU training job duration | <= 30 min (2 GPU, sample) |
+| NFR-21 | GPU utilization | >= 70% avg during training |
+| NFR-22 | Inference HA | >= 2 replicas, rolling update|
+
 ## 7. Keitimo istorija
 | 1.1 | 2026-09-20 | Matas Čeplinskas | MLflow + DVC pipeline, NFR: 08-10       |
 | 1.3 | 2026-09-24 | Matas Čeplinskas | GCP Terraform, Cloud Run, cost analysis |
+| 1.4 | 2026-10-03 | Matas Čeplinskas | K8s inference + HPC DDP training        |
 
 ## 10.x Agentinis elgesys (v1.9)
 
