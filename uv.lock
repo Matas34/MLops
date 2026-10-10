@@ -1658,7 +1658,7 @@ wheels = [
 [[package]]
 name = "mlops"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "dvc" },
     { name = "fastapi" },

@@ -5,14 +5,14 @@ import time
 
 import torch
 import torch.distributed as dist
-import torch.nn as nn
+from torch import nn
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, TensorDataset
 
 
 def setup() -> int:
     dist.init_process_group("nccl")
-    local_rank = int(os.environ.get("LOCAL_RANK", 0))
+    local_rank = int(os.environ.get("LOCAL_RANK", "0"))
     torch.cuda.set_device(local_rank)
     return local_rank
 
