@@ -59,7 +59,7 @@ jobs:
 
   build-push:
     runs-on: ubuntu-latest
-    needs: test
+    needs: model-gate
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
@@ -71,6 +71,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lowercase image name
+        run: echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
       - name: Build and push
         run: |
           TAG=sha-${{ github.sha }}
