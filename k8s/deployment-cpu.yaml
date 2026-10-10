@@ -20,7 +20,7 @@ spec:
       containers:
         - name: api
           # Replace with your Artifact Registry or local image
-          image: mlops-cpu:v1.2.0
+          image: ghcr.io/matas34/mlops/mlops-cpu:sha-83a8a6656279d29224cd26e5e631a0c8d6577790
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsNonRoot: true
