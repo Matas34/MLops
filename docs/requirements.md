@@ -51,10 +51,21 @@ Tikslas: recall >= 0.92, false positive <= 0.5%.
 | NFR-21 | GPU utilization | >= 70% avg during training |
 | NFR-22 | Inference HA | >= 2 replicas, rolling update|
 
+## 6.x CI/CD NFR (v1.5)
+| ID | Reikalavimas | KPI |
+|--------|---------------------------|-----------------------------|
+| NFR-23 | Model rollback time       | <= 5 min                    |
+| NFR-24 | CI pipeline duration      | <= 15 min (main branch)     |
+| NFR-25 | Model gate accuracy       | >= 0.95 for production      |
+| NFR-26 | Deploy only after tests   | 100% PRs blocked on fail    |
+
+
 ## 7. Keitimo istorija
 | 1.1 | 2026-09-20 | Matas Čeplinskas | MLflow + DVC pipeline, NFR: 08-10       |
 | 1.3 | 2026-09-24 | Matas Čeplinskas | GCP Terraform, Cloud Run, cost analysis |
 | 1.4 | 2026-10-03 | Matas Čeplinskas | K8s inference + HPC DDP training        |
+| 1.5 | 2026-10-10 | Matas Čeplinskas | GitHub Actions + ArgoCD GitOps          |
+
 
 ## 10.x Agentinis elgesys (v1.9)
 
