@@ -56,6 +56,10 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python scripts/bootstrap.py && python src/evaluate.py
       - run: python scripts/check_model_gate.py --threshold 0.95
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model
+          path: models/model.pkl
 
   build-push:
     runs-on: ubuntu-latest
@@ -71,6 +75,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: model
+          path: models/
       - name: Lowercase image name
         run: echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
       - name: Build and push
