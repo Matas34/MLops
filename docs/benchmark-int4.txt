@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/scratch/lustre/home/mace0007/vllm-env-124/bin/vllm", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 53, in main
+    args.dispatch_function(args)
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 27, in cmd
+    uvloop.run(run_server(args))
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1078, in run_server
+    async with build_async_engine_client(args) as engine_client:
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 146, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 166, in build_async_engine_client_from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 1273, in create_engine_config
+    config = VllmConfig(
+             ^^^^^^^^^^^
+  File "<string>", line 19, in __init__
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/config.py", line 3866, in __post_init__
+    self.quant_config = VllmConfig._get_quantization_config(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/lustre/home/mace0007/vllm-env-124/lib/python3.12/site-packages/vllm/config.py", line 3805, in _get_quantization_config
+    raise ValueError(
+ValueError: The quantization method awq is not supported for the current GPU. Minimum capability: 75. Current capability: 70.
+
+Reason for the issue: vLLM’s AWQ kernels need compute capability 7.5 (Turing or newer), and the V100 (HPC GPU) is 7.0

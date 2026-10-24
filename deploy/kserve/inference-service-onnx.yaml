@@ -1,0 +1,20 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: fraud-detector
+  namespace: mlops
+spec:
+  predictor:
+    containers:
+      - name: kserve-container
+        image: ghcr.io/matas34/week3-onnx:v1.2.2-cpu
+        env:
+          - name: MODEL_PATH
+            value: /app/models/model.onnx
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            cpu: "2"
+            memory: "1Gi"
