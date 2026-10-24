@@ -1,6 +1,7 @@
 """Register fraud model from latest run or local artifact."""
 import mlflow
 from mlflow.tracking import MlflowClient
+
 MODEL_NAME = "fraud-detector"
 RUN_ID = "31603b4c1edd4936ba77622464418734" # or use runs:/ URI from mlflow ui
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
